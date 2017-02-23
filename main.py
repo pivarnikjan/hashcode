@@ -3,6 +3,15 @@ def parse_datacenter_lat_number_of_caches(row):
     return row[0], row[1]
 
 
+def cache_latency(number_of_rows, file):
+    endp_cache = {}
+    for row in range(number_of_rows):
+        tmp = file.readline().split()
+        endp_cache[tmp[0]] = tmp[1]
+
+    return endp_cache
+
+
 def init_data():
     with open('me_at_the_zoo.in', 'r') as f:
         header = f.readline().split()
