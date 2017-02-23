@@ -1,4 +1,7 @@
 
+def parse_datacenter_lat_number_of_caches(row):
+    return row[0], row[1]
+
 
 def init_data():
     with open('me_at_the_zoo.in', 'r') as f:
@@ -7,23 +10,29 @@ def init_data():
         endpoints = header[1]
         request_description = header[2]
         number_of_chache = header[3]
+        cache_mem = header[4]
 
-        dict_of_videos = {}
+        # 1
+
+
+        # 2
+
+
+        # 3
+        vids = {}
         i = 0
         videos_header = f.readline().split()
         for video in videos_header:
-            dict_of_videos[i] = video
+            vids[i] = video
             i += 1
+        print(vids)
 
-        print(dict_of_videos)
-        # for i in range(0, len(lines)):
-        #     line = lines[i]
-        #     print(line)
+        # 4
+        cache = (number_of_chache, cache_mem)
 
+        # 5
 
-
-
-    # return tmp.split()
+        return (endpoint_cache, reqs, vids, cache, dc_lat)
 
 
 def main():
