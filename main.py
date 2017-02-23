@@ -42,6 +42,11 @@ def init_data():
         # 5
 
         return (endpoint_cache, reqs, vids, cache, dc_lat)
+        #      endpoint_chate: dict {int (cache): int (latency)}
+        #      reqs:           dict {int (endpoint): int (number)}
+        #      vids:           dict {int (vid#): int (size)}
+        #      cache:          int (size of cache)
+        #      dc_lat:         dict {int (endpoint): int (latency)}
 
 
 def main():
