@@ -6,7 +6,7 @@ def cache_latency(number_of_rows, file):
     endp_cache = {}
     for row in range(number_of_rows):
         tmp = file.readline().split()
-        endp_cache[tmp[0]] = tmp[1]
+        endp_cache[int(tmp[0])] = int(tmp[1])
 
     return endp_cache
 
@@ -34,7 +34,7 @@ def init_data():
         endp_cache = []
         for i in range(number_of_endpoints):
             row = f.readline().split()
-            dc_lat.append(row[0])
+            dc_lat.append(int(row[0]))
             endp_cache.append(cache_latency(number_of_rows=int(row[1]), file=f))
         # print(endp_cache)
         # print(dc_lat)
@@ -44,7 +44,9 @@ def init_data():
         # lines = f.readlines()
         lines = f.read().splitlines()
         for item in lines:
-            reqs.append(item.split())
+            tmp = item.split()
+            tmp_int = [int(int_num) for int_num in tmp]
+            reqs.append(tmp_int)
         # print(reqs)
 
         # 4
