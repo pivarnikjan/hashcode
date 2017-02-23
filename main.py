@@ -15,34 +15,44 @@ def cache_latency(number_of_rows, file):
 def init_data():
     with open('me_at_the_zoo.in', 'r') as f:
         header = f.readline().split()
-        number_of_videos = header[0]
-        endpoints = header[1]
-        request_description = header[2]
-        number_of_chache = header[3]
-        cache_mem = header[4]
-
-        # 1
-
-
-        # 2
-
+        number_of_videos = int(header[0])
+        number_of_endpoints = int(header[1])
+        request_description = int(header[2])
+        number_of_chache = int(header[3])
+        cache_mem = int(header[4])
 
         # 3
         vids = {}
         i = 0
         videos_header = f.readline().split()
         for video in videos_header:
-            vids[i] = video
+            vids[i] = int(video)
             i += 1
-        print(vids)
+
+        # 5
+        dc_lat = []
+        # 1
+        endp_cache = []
+        for i in range(number_of_endpoints):
+            row = f.readline().split()
+            dc_lat.append(row[0])
+            endp_cache.append(cache_latency(number_of_rows=int(row[1]), file=f))
+        # print(endp_cache)
+        # print(dc_lat)
+
+        # 2
+        reqs = []
+        # lines = f.readlines()
+        lines = f.read().splitlines()
+        for item in lines:
+            reqs.append(item.split())
+        # print(reqs)
 
         # 4
         cache = (number_of_chache, cache_mem)
 
-        # 5
-
-        return (endpoint_cache, reqs, vids, cache, dc_lat)
-        #      endpoint_chate: dict {int (cache): int (latency)}
+        return (endp_cache, reqs, vids, cache, dc_lat)
+        #      endpoint_cache: dict {int (cache): int (latency)}
         #      reqs:           dict {int (endpoint): int (number)}
         #      vids:           dict {int (vid#): int (size)}
         #      cache:          int (size of cache)
