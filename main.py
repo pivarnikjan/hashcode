@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+
+from engine import store_vids
 
 def parse_datacenter_lat_number_of_caches(row):
     return row[0], row[1]
@@ -64,4 +67,7 @@ def main():
 
 
 if __name__ == '__main__':
-    init_data()
+    init_dat = init_data()
+    print(init_dat)
+    print(init_dat[0][0])
+    store_vids(*init_dat)
