@@ -11,6 +11,8 @@ def random(endpoint_cache, reqs, vids, cache, dc_lat):
 
     # with open('file_out', 'w') as file_out:
     #     file_out.write()
+    pass
+
 
 def store_vids(endpoint_cache, reqs, vids, cache, dc_lat):
         #      endpoint_cache: dict {int (cache): int (latency)}
@@ -76,6 +78,7 @@ def sorted_dif_lat(endp_cache, dc_lat):
     mxc = -1
     emx = -1
 
+    print(endp_cache)
     ekeys = endp_cache.keys()
     # dkeys = dc_lat.keys()
 
